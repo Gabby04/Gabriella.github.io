@@ -1,0 +1,95 @@
+
+/* Swiss-Style Core */
+:root {
+  --green: #12B886;
+  --nude: #EADCCB;
+  --ink: #0E1111;
+  --paper: #FAFAF8;
+  --muted: #6B7280;
+  --maxw: 1120px;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto;
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+}
+
+.wrap { max-width: var(--maxw); margin: 0 auto; padding: 32px 20px 100px; }
+
+/* Header / Nav */
+header { display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: start; margin-bottom: 56px; }
+.brand { font-weight: 800; letter-spacing: -0.02em; font-size: 20px; text-transform: uppercase; }
+nav a { text-decoration: none; color: var(--ink); margin-left: 24px; font-weight: 600; }
+nav a:hover { color: var(--green); }
+
+/* Hero */
+.hero { display: grid; grid-template-columns: 1.3fr 1fr; gap: 32px; align-items: end; border-top: 16px solid var(--ink); padding-top: 24px; margin-bottom: 80px; position:relative; }
+.hero h1 { font-size: clamp(40px, 7vw, 84px); line-height: 0.95; margin: 0; letter-spacing: -0.03em; }
+.kicker { font-size: 14px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); }
+.hero p { font-size: 18px; color: #222; max-width: 56ch; }
+.hero::before { content:""; position:absolute; left:-20px; top:-24px; bottom:-24px; width:8px; background:var(--ink); }
+.hero::after  { content:""; position:absolute; left:-20px; top:-24px; height:8px; width:60%; background:var(--ink); }
+
+/* Elements */
+.badge-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+.badge { border: 2px solid var(--ink); padding: 8px 12px; font-weight: 700; background: white; }
+.swiss-flag { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 16px; }
+.block { height: 12px; }
+.block.green { background: var(--green); }
+.block.nude  { background: var(--nude); }
+
+section { margin: 80px 0; }
+.section-head { display: grid; grid-template-columns: 220px 1fr; gap: 24px; align-items: baseline; }
+.section-head h2 { font-size: 28px; text-transform: uppercase; letter-spacing: 0.08em; margin: 0; }
+.rule { height: 6px; background: var(--ink); }
+
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+
+.card { border: 2px solid var(--ink); background: #fff; padding: 20px; }
+.card h3 { margin: 0 0 8px; font-size: 18px; }
+.meta { font-size: 13px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; }
+
+.resume { border: 2px solid var(--ink); background: #fff; }
+.resume-row { display: grid; grid-template-columns: 220px 1fr; border-top: 2px solid var(--ink); }
+.resume-row:first-child { border-top: none; }
+.resume-cell { padding: 18px; }
+
+footer { margin-top: 120px; padding-top: 24px; border-top: 8px solid var(--ink); display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: center; }
+.social a { margin-right: 16px; font-weight: 700; color: var(--ink); text-decoration: none; }
+.social a:hover { color: var(--green); }
+
+.btn { display: inline-block; border: 2px solid var(--ink); padding: 10px 14px; font-weight: 800; text-decoration: none; color: var(--ink); background: #fff; }
+.btn:hover { background: var(--nude); }
+.btn-accent { background: var(--green); color: #fff; border-color: var(--ink); }
+
+.quick-nav { display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap:12px; margin-top:12px; }
+.quick-nav a { display:block; border:2px solid var(--ink); padding:16px; font-weight:800; text-decoration:none; color:var(--ink); background:#fff; text-align:center; }
+.quick-nav a:hover { background: var(--nude); }
+
+.geo { display:block; width:100%; height:80px; margin-top:12px; }
+
+/* Utilities */
+.skip { position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden; }
+.skip:focus { left:16px; top:16px; width:auto; height:auto; background:#fff; border:2px solid var(--ink); padding:8px 12px; z-index:9999; }
+
+/* Print tweaks for resume.html */
+@media print {
+  nav, .quick-nav, .geo, .swiss-flag, footer { display: none !important; }
+  body { background: #fff; }
+  .wrap { padding-top: 0; }
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .hero { grid-template-columns: 1fr; }
+  .grid-2 { grid-template-columns: 1fr; }
+  .grid-3 { grid-template-columns: 1fr; }
+  .section-head { grid-template-columns: 1fr; }
+  .resume-row { grid-template-columns: 1fr; }
+}
