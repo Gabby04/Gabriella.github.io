@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Swiss-style portfolio of a Business Analyst & Developer." />
+  <link rel="stylesheet" href="style.css" />
+  <title>Case Study — Business Analyst & Developer</title>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="wrap">
+    <header>
+      <div class="brand">Business Analyst & Developer</div>
+      <nav aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="projects.html">Projects</a>
+        <a href="resume.html">Resume</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </header>
+
+<main id="main">
+  <div class="section-head">
+    <h2>Case Study</h2>
+    <div class="rule"></div>
+  </div>
+  <div class="grid-2">
+    <div>
+      <h3 id="cs-title">Project Title</h3>
+      <p class="meta" id="cs-meta">Role · Impact · Year</p>
+      <p id="cs-body">Use this template to write your case study: Context → Constraints → Actions → Outcomes (metrics).</p>
+      <ul>
+        <li><strong>Context:</strong> What business goal and for whom?</li>
+        <li><strong>Constraints:</strong> Time, budget, tech limits, stakeholders.</li>
+        <li><strong>Actions:</strong> Your steps (discovery, design, build, iterate).</li>
+        <li><strong>Outcomes:</strong> Quantify results, lessons learned.</li>
+      </ul>
+      <a class="btn" href="projects.html">← Back to Projects</a>
+    </div>
+    <aside class="card">
+      <h3>Artifacts</h3>
+      <p class="meta">Wireframes · PRDs · Links</p>
+      <p>Add links to docs, screenshots, or repos here.</p>
+    </aside>
+  </div>
+</main>
+<script>
+  // Minimal client-side routing via query string for different cases
+  const params = new URLSearchParams(location.search);
+  const slug = params.get('slug');
+  const title = document.getElementById('cs-title');
+  const meta = document.getElementById('cs-meta');
+  const body = document.getElementById('cs-body');
+  const content = {
+    "eschool": {
+      t: "E‑School Program (Gov’t, 560+ schools)",
+      m: "Analysis · Coordination · Vendor Management · 2024–2025",
+      b: "Contributed to a national e‑learning rollout serving 600k+ students. Coordinated vendors, defined requirements, and tracked delivery across institutions."
+    },
+    "smart-office": {
+      t: "SMART Office (Document Management)",
+      m: "Process · UX · Change Management · 2024–2025",
+      b: "Analyzed workflows, designed IA/metadata, and supported rollout for a document & archive solution."
+    },
+    "edr-licenses": {
+      t: "EDR Engineering Licenses",
+      m: "Sourcing · Training Plans · Stakeholder Comms · 2025",
+      b: "Led partner outreach and evaluation for engineering software and training packages for the Ethiopian‑Djibouti Railway."
+    },
+    "frontend-micro": {
+      t: "Front‑End Micro‑Portfolio",
+      m: "HTML · CSS · JS · 2025",
+      b: "Set of Swiss-style UI components and patterns—this site included."
+    }
+  };
+  if (slug && content[slug]) {
+    title.textContent = content[slug].t;
+    meta.textContent = content[slug].m;
+    body.textContent = content[slug].b;
+  }
+</script>
+
+    <footer>
+      <div>&copy; <span id="year"></span> Business Analyst & Developer</div>
+      <div class="social">
+        <a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com" target="_blank" rel="noopener">GitHub</a>
+        <a href="#top">Top</a>
+      </div>
+    </footer>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
